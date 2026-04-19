@@ -1,6 +1,6 @@
 {
-    "name": "site_cito",
-    "short_name": "site_cito",
+    "name": "Site Cito 🎓",
+    "short_name": "Site Cito",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
