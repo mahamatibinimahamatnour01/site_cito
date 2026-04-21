@@ -22,6 +22,9 @@
 <body>
 <!-- Formulaire d'inscription Netlify -->
 <form name="inscription" method="POST" data-netlify="true">
+    <!-- Champ caché obligatoire pour Netlify -->
+    <input type="hidden" name="form-name" value="inscription">
+
     <input type="text" name="nom" placeholder="Nom complet" required>
     <input type="email" name="email" placeholder="Email" required>
     <select name="formation" required>
