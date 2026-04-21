@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+    <base href="$FLUTTER_BASE_HREF">
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Site Cito - Plateforme éducative Flutter">
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    <!-- iOS meta tags & icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Site Cito">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icons/Icon-512.png"/>
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="site_cito">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="icons/1024.png"/>
-
-  <title>site_cito</title>
-  <link rel="manifest" href="manifest.json">
+    <title>Site Cito</title>
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+<!-- Formulaire d'inscription Netlify -->
+<form name="inscription" method="POST" data-netlify="true">
+    <input type="text" name="nom" placeholder="Nom complet" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <select name="formation" required>
+        <option value="Bureautique">Bureautique</option>
+        <option value="Flutter/Dart">Flutter/Dart</option>
+        <option value="Cybersécurité">Cybersécurité</option>
+        <option value="E-commerce">E-commerce</option>
+    </select>
+    <button type="submit">S'inscrire</button>
+</form>
+
+<!-- Script Flutter -->
+<script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
