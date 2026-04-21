@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="$FLUTTER_BASE_HREF">
-
     <meta charset="UTF-8">
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="Site Cito - Plateforme éducative Flutter">
-
-    <!-- iOS meta tags & icons -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Site Cito">
-    <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="icons/Icon-512.png"/>
-
-    <title>Site Cito</title>
-    <link rel="manifest" href="manifest.json">
+    <title>Test Formulaire Netlify</title>
 </head>
 <body>
-<!-- Formulaire d'inscription Netlify -->
+<!-- Formulaire test Netlify -->
 <form name="inscription" method="POST" data-netlify="true">
-    <!-- Champ caché obligatoire pour Netlify -->
+    <!-- Champ caché obligatoire -->
     <input type="hidden" name="form-name" value="inscription">
 
-    <input type="text" name="nom" placeholder="Nom complet" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <select name="formation" required>
-        <option value="Bureautique">Bureautique</option>
-        <option value="Flutter/Dart">Flutter/Dart</option>
-        <option value="Cybersécurité">Cybersécurité</option>
-        <option value="E-commerce">E-commerce</option>
-    </select>
-    <button type="submit">S'inscrire</button>
-</form>
+    <p>
+        <label>Nom :
+            <input type="text" name="nom" required>
+        </label>
+    </p>
 
-<!-- Script Flutter -->
-<script src="flutter_bootstrap.js" async></script>
+    <p>
+        <label>Email :
+            <input type="email" name="email" required>
+        </label>
+    </p>
+
+    <p>
+        <button type="submit">Envoyer</button>
+    </p>
+</form>
 </body>
 </html>
