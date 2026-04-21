@@ -8,7 +8,7 @@
 <h1>Formulaire d'inscription</h1>
 
 <!-- Formulaire Netlify -->
-<form name="inscription" method="POST" data-netlify="true" action="success.html">
+<form name="inscription" method="POST" data-netlify="true" action="success.html" enctype="multipart/form-data">
     <!-- Champ caché obligatoire -->
     <input type="hidden" name="form-name" value="inscription">
 
@@ -21,10 +21,32 @@
     <p>
         <label>Formation : <input type="text" name="formation" required></label>
     </p>
+    <p>
+        <label>Fichier (optionnel) : <input type="file" name="fichier"></label>
+    </p>
 
     <p>
         <button type="submit">S’inscrire</button>
     </p>
 </form>
+
+<!-- Script pour alerte personnalisée (optionnel) -->
+<script>
+    const handleSubmit = event => {
+      event.preventDefault();
+      const myForm = event.target;
+      const formData = new FormData(myForm);
+
+      fetch("/", {
+        method: "POST",
+        body: new URLSearchParams(formData).toString(),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      })
+        .then(() => alert("Merci pour votre inscription !"))
+        .catch(error => alert("Erreur : " + error));
+    };
+
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+</script>
 </body>
 </html>
