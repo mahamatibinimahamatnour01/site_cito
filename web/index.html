@@ -2,19 +2,54 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Site Cito - Formulaire</title>
+    <title>Site Cito - Inscription</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+          emailjs.init("TON_USER_ID_EMAILJS"); // Remplace par ton User ID EmailJS
+        })();
+    </script>
 </head>
 <body>
-<!-- Formulaire Netlify sans redirection -->
+<!-- Conteneur Flutter -->
+<div id="flutter_app">
+    <script src="main.dart.js"></script>
+</div>
+
+<!-- Formulaire Netlify -->
 <h2>Inscription</h2>
-<form name="inscription" method="POST" data-netlify="true">
-    <!-- Champ caché obligatoire -->
+<form id="inscriptionForm" name="inscription" method="POST" data-netlify="true" action="success.html">
     <input type="hidden" name="form-name" value="inscription">
 
-    <p><label>Nom : <input type="text" name="nom" required></label></p>
-    <p><label>Email : <input type="email" name="email" required></label></p>
+    <p><label>Nom : <input type="text" name="nom" id="nom" required></label></p>
+    <p><label>Email : <input type="email" name="email" id="email" required></label></p>
     <p><button type="submit">S’inscrire</button></p>
 </form>
+
+<!-- Script EmailJS pour confirmation -->
+<script>
+    document.getElementById('inscriptionForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Empêche l’envoi immédiat
+      const form = event.target;
+
+      // Envoi via Netlify
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(() => {
+        // Envoi email de confirmation via EmailJS
+        emailjs.send("TON_SERVICE_ID", "TON_TEMPLATE_ID", {
+          nom: document.getElementById("nom").value,
+          email: document.getElementById("email").value
+        }).then(() => {
+          // Redirection vers success.html
+          window.location.href = "success.html";
+        });
+      }).catch((error) => alert(error));
+    });
+</script>
 </body>
 </html>
