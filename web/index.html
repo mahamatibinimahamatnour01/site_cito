@@ -7,26 +7,24 @@
 <body>
 <h1>Formulaire d'inscription</h1>
 
+<!-- Formulaire Netlify -->
 <form name="inscription" method="POST" data-netlify="true" action="success.html">
-    <!-- Champ caché obligatoire pour Netlify -->
+    <!-- Champ caché obligatoire -->
     <input type="hidden" name="form-name" value="inscription">
 
-    <label>Nom :
-        <input type="text" name="nom" required>
-    </label>
-    <br>
+    <p>
+        <label>Nom : <input type="text" name="nom" required></label>
+    </p>
+    <p>
+        <label>Email : <input type="email" name="email" required></label>
+    </p>
+    <p>
+        <label>Formation : <input type="text" name="formation" required></label>
+    </p>
 
-    <label>Email :
-        <input type="email" name="email" required>
-    </label>
-    <br>
-
-    <label>Formation :
-        <input type="text" name="formation" required>
-    </label>
-    <br>
-
-    <button type="submit">S’inscrire</button>
+    <p>
+        <button type="submit">S’inscrire</button>
+    </p>
 </form>
 </body>
 </html>
